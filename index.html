@@ -1,58 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mon Site Web</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHMATE KONE - Gamer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="script.js"></script>
+
+
 </head>
 <body>
 
-  <header>
-    <h1>Bienvenue sur Mon Site Web</h1>
-    <nav>
-      <ul>
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Fond animé -->
+<div id="particles-js"></div>
 
-  <main>
-    <section id="accueil">
-      <h2>Accueil</h2>
-      <p>Ceci est une page d'exemple créée en HTML, CSS et JavaScript.</p>
-    </section>
 
-    <section id="apropos">
-      <h2>À propos</h2>
-      <p>Je suis un développeur web passionné. Ce site est un exemple simple.</p>
-    </section>
 
-    <section id="contact">
-      <h2>Contactez-moi</h2>
-      <form id="contactForm">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required />
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required />
+  <button id="themeToggle" class="theme-toggle">🌙</button>
 
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" required></textarea>
 
-        <button type="submit">Envoyer</button>
-      </form>
-      <p id="confirmation" style="display:none;">Message envoyé !</p>
-    </section>
-  </main>
+  
 
-  <footer>
-    <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>
+<nav class="navbar">
+  <ul>
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#games">Jeux</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+ 
+</nav>
+
+
+
+
+
+ <header class="hero">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="video game.mp4" type="video/mp4">
+  </video>
+  <div class="overlay">
+    <h1>AHMATE KONE</h1>
+    <p>🎮 Joueur passionné de jeux vidéo 🎮</p>
+  </div>
+</header>
+
+   
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+ 
+
+
+  <section class="about slide-in-left">
+    <h2>À propos de moi</h2>
+    <p>Bienvenue sur mon site ! Je suis un gamer spécialisé dans les jeux FPS, stratégie et multijoueur.</p>
+  </section>
+
+  <section class="games slide-in-right">
+    <h2>Jeux préférés</h2>
+   <ul>
+  <li><i class="fas fa-crosshairs"></i> Call of Duty</li>
+  <li><i class="fas fa-hat-wizard"></i> Fortnite</li>
+  <li><i class="fas fa-chess-knight"></i> League of Legends</li>
+  <li><i class="fas fa-cube"></i> Valorant</li>
+</ul>
+  </section>
+
+  
+  <section id="posters" class="posters">
+  <h2>Mes jeux préférés</h2>
+  <div class="poster-grid">
+    <div class="poster">
+      <img src="assets/cod.jpg" alt="Call of Duty">
+      <h3>Call of Duty</h3>
+    </div>
+    <div class="poster">
+      <img src="assets/fortnite.jpg" alt="Fortnite">
+      <h3>Fortnite</h3>
+    </div>
+    <div class="poster">
+      <img src="assets/lol.jpg" alt="League of Legends">
+      <h3>League of Legends</h3>
+    </div>
+    <div class="poster">
+      <img src="assets/valorant.jpg" alt="Valorant">
+      <h3>Valorant</h3>
+    </div>
+  </div>
+</section>
+
+  
+  
+  
+  
+  
+  
+  
+  <section class="blog" id="blog">
+  <h2>Actualités Gamer</h2>
+  <article>
+    <h3>🚀 Sortie de Call of Duty 2025</h3>
+    <p>Le nouveau CoD arrive avec un mode Battle Royale amélioré !</p>
+  </article>
+  <article>
+    <h3>🎮 League of Legends met à jour son système de runes</h3>
+    <p>Une nouvelle meta se dessine pour la saison à venir.</p>
+  </article>
+</section>
+
+
+
+
+  
+
+  <section class="contact fade-in">
+    <h2>Me contacter</h2>
+    <form action="https://formspree.io/f/{TON_CODE}" method="POST">
+      <input type="text" name="name" placeholder="Ton nom" required>
+      <input type="email" name="email" placeholder="Ton email" required>
+      <textarea name="message" placeholder="Ton message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer class="footer animate__animated animate__fadeInUp">
+    <div class="socials">
+  <a href="https://twitch.tv/tonpseudo" target="_blank">Twitch</a> |
+  <a href="https://discord.gg/tonserveur" target="_blank">Discord</a> |
+  <a href="https://youtube.com/@tonpseudo" target="_blank">YouTube</a>
+</div>
+
+    <p>&copy; 2025 AHMATE KONE</p>
   </footer>
 
-  <script src="script.js"></script>
+
 </body>
 </html>
