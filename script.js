@@ -1,116 +1,89 @@
-const toggle = document.getElementById("themeToggle");
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("light-mode");
-});
-
-
-
-particlesJS('particles-js',
-  {
-    "particles": {
-      "number": {
-        "value": 80,
-        "density": {
-          "enable": true,
-          "value_area": 800
-        }
-      },
-      "color": { "value": "#00ffff" },
-      "shape": {
-        "type": "circle",
-        "stroke": { "width": 0, "color": "#000000" }
-      },
-      "opacity": { "value": 0.5, "random": false },
-      "size": { "value": 3, "random": true },
-      "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#00ffff",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 6,
-        "direction": "none",
-        "out_mode": "out"
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": { "enable": true, "mode": "grab" },
-        "onclick": { "enable": true, "mode": "push" }
-      },
-      "modes": {
-        "grab": {
-          "distance": 140,
-          "line_linked": { "opacity": 1 }
-        },
-        "push": { "particles_nb": 4 }
-      }
-    },
-    "retina_detect": true
-  }
-);
-
-const toggleBtn = document.getElementById("themeToggle");
-
-function setTheme(mode) {
-  if (mode === "light") {
-    document.documentElement.style.setProperty("--bg-color", "#f0f0f0");
-    document.documentElement.style.setProperty("--text-color", "#111");
-    document.documentElement.style.setProperty("--accent-color", "#0077ff");
-    toggleBtn.textContent = "☀️";
-  } else {
-    document.documentElement.style.setProperty("--bg-color", "#000");
-    document.documentElement.style.setProperty("--text-color", "#fff");
-    document.documentElement.style.setProperty("--accent-color", "#00ffff");
-    toggleBtn.textContent = "🌙";
-  }
-  localStorage.setItem("theme", mode);
+Fonctions de manipulation de chaînes
+// 1. Inverser une chaîne
+function inverserChaine(chaine) {
+  return chaine.split('').reverse().join('');
 }
 
-toggleBtn.addEventListener("click", () => {
-  const currentTheme = localStorage.getItem("theme") || "dark";
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
-  setTheme(newTheme);
-});
+// 2. Compter les caractères
+function compterCaracteres(chaine) {
+  return chaine.length;
+}
 
-// Appliquer le thème au chargement de la page
-setTheme(localStorage.getItem("theme") || "dark");
+// 3. Mettre les mots en majuscule
+function mettreMotsMajuscule(phrase) {
+  return phrase.split(' ').map(mot => 
+    mot.charAt(0).toUpperCase() + mot.slice(1)
+  ).join(' ');
+}
 
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
-    color: { value: "#00ffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5 },
-    size: { value: 3, random: true },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#00ffff",
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 4,
-      direction: "none",
-      out_mode: "out"
-    }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: { enable: true, mode: "grab" },
-      onclick: { enable: true, mode: "push" }
-    },
-    modes: {
-      grab: { distance: 140, line_linked: { opacity: 1 } },
-      push: { particles_nb: 4 }
-    }
-  },
-  retina_detect: true
-});
+
+Fonctions de tableau
+// 4. Rechercher le maximum et le minimum
+function trouverMax(tableau) {
+  return Math.max(...tableau);
+}
+
+function trouverMin(tableau) {
+  return Math.min(...tableau);
+}
+
+// 5. Somme d'un tableau
+function sommeTableau(tableau) {
+  return tableau.reduce((acc, val) => acc + val, 0);
+}
+
+// 6. Filtrer le tableau
+function filtrerTableau(tableau, condition) {
+  return tableau.filter(condition);
+}
+
+
+Fonctions mathématiques
+// 7. Factorielle
+function factorielle(n) {
+  if (n === 0 || n === 1) return 1;
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+// 8. Vérification des nombres premiers
+function estPremier(n) {
+  if (n <= 1) return false;
+  if (n === 2) return true;
+  
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+
+// 9. Suite de Fibonacci
+function fibonacci(n) {
+  const suite = [0, 1];
+  
+  for (let i = 2; i < n; i++) {
+    suite[i] = suite[i-1] + suite[i-2];
+  }
+  
+  return suite.slice(0, n);
+}
+
+
+Exemples d'utilisation
+// Tests
+console.log(inverserChaine("bonjour")); // "ruojnob"
+console.log(compterCaracteres("hello")); // 5
+console.log(mettreMotsMajuscule("bonjour tout le monde")); // "Bonjour Tout Le Monde"
+
+const nombres = [3, 1, 4, 1, 5, 9];
+console.log(trouverMax(nombres)); // 9
+console.log(trouverMin(nombres)); // 1
+console.log(sommeTableau(nombres)); // 23
+console.log(filtrerTableau(nombres, x => x > 3)); // [4, 5, 9]
+
+console.log(factorielle(5)); // 120
+console.log(estPremier(17)); // true
+console.log(fibonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
